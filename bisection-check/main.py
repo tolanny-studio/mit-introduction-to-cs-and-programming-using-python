@@ -1,8 +1,19 @@
 import random
 
+
+def validate_boundary_input(prompt):
+    while True:
+        try:
+            boundary = int(input(prompt))
+        except ValueError:
+            print("Invalid input")
+            continue
+        return boundary
+
+
 def get_boundaries():
-    lower_boundary = int(input("Enter the lower boundary : "))
-    upper_boundary = int(input("Enter the upper boundary : "))
+    lower_boundary = validate_boundary_input("Enter the lower boundary : ")
+    upper_boundary = validate_boundary_input("Enter the upper boundary : ")
     return lower_boundary, upper_boundary
 
 
@@ -23,8 +34,10 @@ def bisection_guess():
         else:
             upper_boundary = mid_section
 
+
 def main():
-  bisection_guess()
-  
+    bisection_guess()
+
+
 if __name__ == "__main__":
-  main()
+    main()
