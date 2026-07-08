@@ -21,13 +21,14 @@ def bisection_guess():
     lower_boundary, upper_boundary = get_boundaries()
     secret_number = random.randint(lower_boundary, upper_boundary)
 
-    print(secret_number)
     tries = 0
     while True:
         mid_section = int((upper_boundary + lower_boundary) // 2)
         tries += 1
         if secret_number == mid_section:
-            print(f"You got it 💯 => Tries : {tries}")
+            print(f"You got it 💯")
+            print(f"Number : {secret_number}")
+            print(f"Tries : {tries}")
             break
         if secret_number > mid_section:
             lower_boundary = mid_section
