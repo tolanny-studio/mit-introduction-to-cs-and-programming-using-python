@@ -38,19 +38,19 @@ def play_bisection_game():
     lower_boundary, upper_boundary = get_boundaries()
     secret_number = random.randint(lower_boundary, upper_boundary)
 
-    tries = 0
+    guesses = 0
     while True:
         mid_section = (upper_boundary + lower_boundary) // 2
-        tries += 1
+        guesses += 1
         if secret_number == mid_section:
             print(f"You got it 💯")
             print(f"Number : {secret_number}")
-            print(f"Tries : {tries}")
+            print(f"Guess(es): {guesses}")
             break
         if secret_number > mid_section:
-            lower_boundary = mid_section
+            lower_boundary = mid_section + 1
         else:
-            upper_boundary = mid_section
+            upper_boundary = mid_section - 1
 
 
 def main():
