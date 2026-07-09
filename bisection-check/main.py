@@ -9,7 +9,9 @@ def validate_boundary_input(prompt):
             print("Invalid input. Please retry🔄️")
             continue
         if boundary < 1:
-            print("Invalid Input.The number should be greater than 0 (x > 0). Please retry🔄️")
+            print(
+                "Invalid Input.The number should be greater than 0 (x > 0). Please retry🔄️"
+            )
             continue
         return boundary
 
@@ -39,8 +41,10 @@ def play_bisection_game():
     secret_number = random.randint(lower_boundary, upper_boundary)
 
     guesses = 0
-    while True:
+    while lower_boundary <= upper_boundary:
         mid_section = (upper_boundary + lower_boundary) // 2
+        print(f"Range: {lower_boundary}-{upper_boundary}")
+        print(f"Middle: : {mid_section}")
         guesses += 1
         if secret_number == mid_section:
             print(f"You got it 💯")
