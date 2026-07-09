@@ -6,15 +6,32 @@ def validate_boundary_input(prompt):
         try:
             boundary = int(input(prompt))
         except ValueError:
-            print("Invalid input")
+            print("Invalid input. Please retry🔄️")
+            continue
+        if boundary < 1:
+            print("Invalid Input.The number should be greater than 0 (x > 0). Please retry🔄️")
             continue
         return boundary
 
 
 def get_boundaries():
-    lower_boundary = validate_boundary_input("Enter the lower boundary : ")
-    upper_boundary = validate_boundary_input("Enter the upper boundary : ")
-    return lower_boundary, upper_boundary
+    while True:
+        lower_boundary = validate_boundary_input("Enter the lower boundary (x1 > 0): ")
+        upper_boundary = validate_boundary_input(
+            "Enter the upper boundary (0 < x2 > x1): "
+        )
+
+        if lower_boundary > upper_boundary:
+            print(
+                f"Lower boundary {lower_boundary} is greater than upper boundary {upper_boundary}. Please retry🔄️"
+            )
+            continue
+        if lower_boundary == upper_boundary:
+            print(
+                f"Lower boundary {lower_boundary} is equal to upper boundary {upper_boundary}. Please retry🔄️"
+            )
+            continue
+        return lower_boundary, upper_boundary
 
 
 def bisection_guess():
