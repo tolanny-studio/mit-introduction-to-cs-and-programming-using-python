@@ -34,13 +34,13 @@ def get_boundaries():
         return lower_boundary, upper_boundary
 
 
-def bisection_guess():
+def play_bisection_game():
     lower_boundary, upper_boundary = get_boundaries()
     secret_number = random.randint(lower_boundary, upper_boundary)
 
     tries = 0
     while True:
-        mid_section = int((upper_boundary + lower_boundary) // 2)
+        mid_section = (upper_boundary + lower_boundary) // 2
         tries += 1
         if secret_number == mid_section:
             print(f"You got it 💯")
@@ -54,7 +54,7 @@ def bisection_guess():
 
 
 def main():
-    bisection_guess()
+    play_bisection_game()
 
 
 if __name__ == "__main__":
